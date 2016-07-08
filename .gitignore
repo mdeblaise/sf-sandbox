@@ -21,3 +21,6 @@
 !bin/console
 !bin/symfony_requirements
 /vendor/
+
+# Docker Configuration
+/docker/docker-compose.env
