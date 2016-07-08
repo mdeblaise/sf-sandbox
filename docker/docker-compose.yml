@@ -1,0 +1,56 @@
+# This container is specific to the application.
+# It contains configuration and data for other containers.
+data:
+   image: busybox
+   container_name: sf-sandbox_data
+   volumes:
+       - ..:/srv
+       - ./conf/nginx_vhost.conf:/etc/nginx/sites-enabled/my_app.conf
+       - .home-developer:/home/developer
+       - $SSH_AUTH_SOCK:/tmp/agent.sock
+       - /var/lib/mysql
+
+webserver:
+   image: greg0ire/nginx
+   container_name: sf-sandbox_webserver
+   volumes_from:
+       - data
+   links:
+       - appserver
+   env_file:
+       - ./docker-compose.env
+   environment:
+       - DNSDOCK_IMAGE=web
+
+appserver:
+   image: meuhmeuhconcept/php-fpm
+   container_name: sf-sandbox_appserver
+   volumes_from:
+       - data
+   links:
+       - mailer
+   env_file:
+       - ./docker-compose.env
+   environment:
+       - DNSDOCK_IMAGE=app
+
+console:
+   image: meuhmeuhconcept/php-console
+   container_name: sf-sandbox_console
+   volumes_from:
+       - data
+   links:
+       - mailer
+   env_file:
+       - ./docker-compose.env
+   environment:
+       - DNSDOCK_IMAGE=console
+       - SSH_AUTH_SOCK=/tmp/agent.sock
+
+mailer:
+   image: greg0ire/mailcatcher
+   container_name: sf-sandbox_mailer
+   env_file:
+       - ./docker-compose.env
+   environment:
+       - DNSDOCK_IMAGE=mailer
