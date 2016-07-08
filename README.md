@@ -1,2 +1,4 @@
-# sf-sandbox
-Sandbox Symfony3 for MMC team
+tintin
+======
+
+A Symfony project created on July 8, 2016, 9:11 am.
