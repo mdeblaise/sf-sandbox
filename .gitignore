@@ -24,3 +24,4 @@
 
 # Docker Configuration
 /docker/docker-compose.env
+/docker/.home-developer
