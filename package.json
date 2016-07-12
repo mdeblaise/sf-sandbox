@@ -20,5 +20,6 @@
   },
   "homepage": "https://github.com/mdeblaise/sf-sandbox#readme",
   "dependencies": {
+    "bower": "^1.7.9"
   }
 }

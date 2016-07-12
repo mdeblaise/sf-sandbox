@@ -1,0 +1,14 @@
+{
+  "name": "sf-sandbox",
+  "description": "tintin ======",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/mdeblaise/sf-sandbox",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
