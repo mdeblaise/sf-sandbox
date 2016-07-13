@@ -21,6 +21,7 @@
   "homepage": "https://github.com/mdeblaise/sf-sandbox#readme",
   "dependencies": {
     "bower": "^1.7.9",
+    "del": "^2.2.1",
     "gulp": "^3.9.1"
   }
 }
