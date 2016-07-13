@@ -1,3 +1,7 @@
 mmc_admin_homepage:
     path:     /
+    defaults: { _controller: MMCAdminBundle:AdminBundle:index }
+
+mmc_admin_demo:
+    path:     /demo
     defaults: { _controller: MMCAdminBundle:Default:index }
